@@ -2,15 +2,23 @@
 #include <string.h>
 #include "book_list.h"
 
+const book_t books[] = 
+	{ "Starfish", "Peter Watts" },
+	{ "Neuromancer", "William Gibson" },
+	{ "Isekai", "Protia Du Alleb" },
+	{ "I Shall Wear Midnight", "Terry Pratchett" }
+};
+
+const book_t missing_book = { "Velvet Darkness", "Sofia Garcia Moreno" };
+
 int test_push(void) {
 	node_t * head = NULL;
-	book_t book = { "Starfish", "Peter Watts" };
 	book_t found_book;
 
-	if (push(head, book.title, book.author) == 0) {
-		if (find(head, book.title, &found_book) == 0) {
-			if (strcmp(book.title, found_book.title) == 0
-				&& strcmp(book.author, found_book.author) == 0)
+	if (push(head, books[1].title, books[1].author) == 0) {
+		if (find(head, books[1].title, &found_book) == 0) {
+			if (strcmp(books[1].title, found_book.title) == 0
+				&& strcmp(books[1].author, found_book.author) == 0)
 			{
 				return 0;
 			}
