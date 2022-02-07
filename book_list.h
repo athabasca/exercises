@@ -7,11 +7,12 @@
  * You may add or remove a book from the top of the pile, sort the pile,
  * search it for a particular book, or remove a particular book from
  * anywhere in the pile.
+ * Book titles and authors are limited to 64 characters each.
  */
 
 typedef struct book {
-	char * title;
-	char * author;
+	char title[64];
+	char author[64];
 } book_t;
 
 typedef struct node {
