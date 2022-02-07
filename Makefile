@@ -6,3 +6,7 @@ CFLAGS = -Wall
 test: $(TEST_SRCS) 
 	gcc $(CFLAGS) $^ -o $@
 	./$@
+
+.PHONY: clean
+clean:
+	rm -f test *.gch
