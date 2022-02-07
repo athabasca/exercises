@@ -2,7 +2,7 @@
 #include <string.h>
 #include "book_list.h"
 
-const book_t books[] = 
+const book_t books[] = {
 	{ "Starfish", "Peter Watts" },
 	{ "Neuromancer", "William Gibson" },
 	{ "Isekai", "Protia Du Alleb" },
