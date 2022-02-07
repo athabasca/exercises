@@ -1,7 +1,21 @@
 #include <stdio.h>
+#include <string.h>
 #include "book_list.h"
 
 int test_push(void) {
+	node_t * head = NULL;
+	book_t book = { "Starfish", "Peter Watts" };
+	book_t found_book;
+
+	if (push(head, book.title, book.author) == 0) {
+		if (find(head, book.title, &found_book) == 0) {
+			if (strcmp(book.title, found_book.title) == 0
+				&& strcmp(book.author, found_book.author) == 0)
+			{
+				return 0;
+			}
+		}
+	}
 	return -1;
 }
 
