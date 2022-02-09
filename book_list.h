@@ -67,15 +67,28 @@ int delete(node_t ** head, const char * title);
 
 /* Find a book with a given title
  *
- * The find() function returns the title and author of a book with a
+ * The find_title() function returns the title and author of a book with a
  * given title if the book is in the list pointed to by head.
  * The title and author are stored in the return_data struct.
  *
- * The find() function returns 0 on success,
+ * The find_title() function returns 0 on success,
  * BOOK_NOT_FOUND if the book is not in the list,
  * or BOOK_LIST_EMPTY if the list is empty.
  */
-int find(node_t * head, const char * title, book_t * return_data);
+int find_title(node_t * head, const char * title, book_t * return_data);
+
+
+/* Find a book with a given index
+ *
+ * The find_index() function returns the title and author of a book with a
+ * given index if the book is in the list pointed to by head.
+ * The title and author are stored in the return_data struct.
+ *
+ * The find_index() function returns 0 on success,
+ * BOOK_NOT_FOUND if the book is not in the list,
+ * or BOOK_LIST_EMPTY if the list is empty.
+ */
+int find_index(node_t * head, const unsigned int index, book_t * return_data);
 
 
 /* Sort the pile of books
