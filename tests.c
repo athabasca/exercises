@@ -88,10 +88,6 @@ int test_delete_missing_book(void) {
 	return -1;
 }
 
-int test_find(void) {
-	return -1;
-}
-
 int test_find_empty(void) {
 	return -1;
 }
