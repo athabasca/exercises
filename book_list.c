@@ -37,7 +37,29 @@ int push(node_t * head, const char * title, const char * author) {
 
 int pop(node_t ** head, book_t * return_data){ return -1; }
 int delete(node_t ** head, const char * title){ return -1; }
-int find_title(node_t * head, const char * title, book_t * return_data){ return -1; }
+
+int find_title(node_t * head, const char * title, book_t * return_data) {
+	node_t * node = NULL;
+	size_t length = 0;
+
+	if (NULL == head) {
+		return BOOK_LIST_EMPTY;
+	}
+
+	length = strlen(title);
+	node = head;
+	while (NULL != node) {
+		if (strncmp(title, node->data->title, length) == 0) {
+			snprintf(return_data->title, length, "%s", node->data->title);
+			snprintf(return_data->author, strlen(node->data->author), "%s", node->data->author);
+			return 0;
+		}
+		node = node->next;
+	}
+	return BOOK_NOT_FOUND;
+}
+
+
 int find_index(node_t * head, const unsigned int index, book_t * return_data) { return -1; }
 int sort(node_t * head, unsigned int flags){ return -1; }
 
