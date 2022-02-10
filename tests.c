@@ -16,7 +16,7 @@ int test_push(void) {
 	book_t found_book;
 
 	if (push(head, books[1].title, books[1].author) == 0) {
-		if (find(head, books[1].title, &found_book) == 0) {
+		if (find_title(head, books[1].title, &found_book) == 0) {
 			if (strcmp(books[1].title, found_book.title) == 0
 				&& strcmp(books[1].author, found_book.author) == 0)
 			{
@@ -28,6 +28,26 @@ int test_push(void) {
 }
 
 int test_push_three(void) {
+	const unsigned int MAX_INDEX = 2;
+	node_t * head = NULL;
+	int retval = -1;
+	int ii = 0, jj = 0;
+	book_t found_book;
+
+	for (ii = 0; ii <= MAX_INDEX; ii++) {
+		retval = push(head, books[ii].title, books[ii].author);
+		if (retval != 0) { return retval; }
+	}
+	for (jj = 0; jj <= MAX_INDEX; jj++) {
+		if (find_index(head, jj, &found_book) == 0) {
+			if (strcmp(books[MAX_INDEX - jj].title, found_book.title) == 0
+				&& strcmp(books[MAX_INDEX - jj].author, found_book.author) == 0)
+			{
+				return 0;
+			}
+		}
+	}
+
 	return -1;
 }
 
