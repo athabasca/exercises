@@ -5,7 +5,7 @@
 #include "book_list.h"
 
 
-int push(node_t * head, const char * title, const char * author) { 
+int push(node_t ** head, const char * title, const char * author) { 
 	book_t * data = NULL;
 	node_t * new_node = NULL;
 
@@ -23,15 +23,13 @@ int push(node_t * head, const char * title, const char * author) {
 	}
 	new_node->data = data;
 
-	if (NULL == head) {
+	if (NULL == *head) {
 		new_node->next = NULL;
-		head = new_node;
 	}
 	else {
-		new_node->next = head->next;
-		head->next = new_node;
+		new_node->next = *head;
 	}
-	//print_list(head);
+	*head = new_node;
 	return 0;
 }
 
@@ -67,7 +65,7 @@ int sort(node_t * head, unsigned int flags){ return -1; }
 void print_list(node_t * head) {
 	node_t * node = head;
 	if (NULL == node) {
-		return;
+		puts("Empty list");
 	}
 
 	while (NULL != node) {
