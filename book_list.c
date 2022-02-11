@@ -14,8 +14,8 @@ int push(node_t * head, const char * title, const char * author) {
 		return NO_MEMORY;
 	}
 
-	snprintf(data->title, strlen(title), "%s", title);
-	snprintf(data->author, strlen(author), "%s", author);
+	snprintf(data->title, strlen(title) + 1, "%s", title);
+	snprintf(data->author, strlen(author) + 1, "%s", author);
 
 	new_node = malloc(sizeof(node_t));
 	if (NULL == new_node) {
@@ -31,6 +31,7 @@ int push(node_t * head, const char * title, const char * author) {
 		new_node->next = head->next;
 		head->next = new_node;
 	}
+	//print_list(head);
 	return 0;
 }
 
@@ -46,12 +47,12 @@ int find_title(node_t * head, const char * title, book_t * return_data) {
 		return BOOK_LIST_EMPTY;
 	}
 
-	length = strlen(title);
+	length = strlen(title) + 1;
 	node = head;
 	while (NULL != node) {
 		if (strncmp(title, node->data->title, length) == 0) {
 			snprintf(return_data->title, length, "%s", node->data->title);
-			snprintf(return_data->author, strlen(node->data->author), "%s", node->data->author);
+			snprintf(return_data->author, strlen(node->data->author) + 1, "%s", node->data->author);
 			return 0;
 		}
 		node = node->next;
