@@ -63,3 +63,14 @@ int find_title(node_t * head, const char * title, book_t * return_data) {
 int find_index(node_t * head, const unsigned int index, book_t * return_data) { return -1; }
 int sort(node_t * head, unsigned int flags){ return -1; }
 
+void print_list(node_t * head) {
+	node_t * node = head;
+	if (NULL == node) {
+		return;
+	}
+
+	while (NULL != node) {
+		printf("%s %s\n", node->data->title, node->data->author);
+		node = node->next;
+	}
+}
