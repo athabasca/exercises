@@ -105,5 +105,13 @@ int find_index(node_t * head, const unsigned int index, book_t * return_data);
 int sort(node_t * head, unsigned int flags);
 
 
+/* Print the list
+ *
+ * The print_list() function prints the list with each title-author pair
+ * on a new line.
+ *
+ * The print_list() function returns nothing.
+ */
+void print_list(node_t * head);
 #endif
 
