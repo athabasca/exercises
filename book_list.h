@@ -38,7 +38,7 @@ typedef struct node {
  * The push() function returns 0 on success 
  * or NO_MEMORY if it cannot allocate memory for the node.
  */
-int push(node_t * head, const char * title, const char * author);
+int push(node_t ** head, const char * title, const char * author);
 
 
 /* Pop a book off the top of the pile
