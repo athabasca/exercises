@@ -181,6 +181,14 @@ int test_sort_empty(void) {
 	return -1;
 }
 
+int test_cmp(void) {
+	return -1;
+}
+
+int test_copy(void) {
+	return -1;
+}
+
 struct test_fn {
 	int (*fn_ptr)(void);
 	char * name;
