@@ -188,7 +188,7 @@ int test_cmp(void) {
 
 	if (0 == book_cmp(&book1, &book1)
 	&& (0 > book_cmp(&book1, &book2))
-	&& (0 < book_cmp(&book1, &book2)))
+	&& (0 < book_cmp(&book2, &book1)))
 	{
 		return 0;
 	}

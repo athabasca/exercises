@@ -76,7 +76,11 @@ void print_list(node_t * head) {
 
 
 int book_cmp(const book_t * book1, const book_t * book2) {
-	return NOT_IMPLEMENTED;
+	int ret_val = strncmp(book1->title, book2->title, MAX_STRING);
+	if (0 != ret_val) {
+		return ret_val;
+	}
+	return strncmp(book1->author, book2->author, MAX_STRING);
 }
 
 int copy_book(const book_t * src, book_t * dest) {
