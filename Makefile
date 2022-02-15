@@ -3,9 +3,12 @@ TEST_SRCS = tests.c $(SRCS)
 
 CFLAGS = -Wall
 
-test: $(TEST_SRCS) 
-	gcc $(CFLAGS) $^ -o $@
-	./$@
+all: $(TEST_SRCS) 
+	gcc $(CFLAGS) $^ -o test
+
+.PHONY: test
+test:
+	./test
 
 .PHONY: clean
 clean:
