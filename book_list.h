@@ -9,10 +9,12 @@
  * anywhere in the pile.
  * Book titles and authors are limited to 64 characters each.
  */
+ 
+#define MAX_STRING 64
 
 typedef struct book {
-	char title[64];
-	char author[64];
+	char title[MAX_STRING];
+	char author[MAX_STRING];
 } book_t;
 
 typedef struct node {
