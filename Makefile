@@ -7,7 +7,7 @@ all: $(TEST_SRCS)
 	gcc $(CFLAGS) $^ -o test
 
 .PHONY: test
-test:
+test: all
 	./test
 
 .PHONY: clean
