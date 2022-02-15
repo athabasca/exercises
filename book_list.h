@@ -127,5 +127,16 @@ void print_list(node_t * head);
  * 	a positive value if book1 is greater than book2
  */
 int book_cmp(const book_t * book1, const book_t * book2);
+
+
+/* Copy a book
+ *
+ * The copy_book() function copies book data from src to dest.
+ * Memory for dest must already be allocated.
+ *
+ * The copy_book() function returns 0 on success
+ * and currently ignores the possibilty of errors.
+ */
+int copy_book(const book_t * src, book_t * dest);
 #endif
 

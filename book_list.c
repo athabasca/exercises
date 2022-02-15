@@ -79,3 +79,7 @@ int book_cmp(const book_t * book1, const book_t * book2) {
 	return NOT_IMPLEMENTED;
 }
 
+int copy_book(const book_t * src, book_t * dest) {
+	return NOT_IMPLEMENTED;
+}
+
