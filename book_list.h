@@ -113,5 +113,18 @@ int sort(node_t * head, unsigned int flags);
  * The print_list() function returns nothing.
  */
 void print_list(node_t * head);
+
+
+/* Compare two books
+ *
+ * The book_cmp() function compares two books lexicographically
+ * by title then author.
+ *
+ * The book_cmp() function returns:
+ * 	0 if book1 is equal to book2
+ * 	a negative value if book1 is less than book2
+ * 	a positive value if book1 is greater than book2
+ */
+int book_cmp(const book_t * book1, const book_t * book2);
 #endif
 

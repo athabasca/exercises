@@ -73,3 +73,9 @@ void print_list(node_t * head) {
 		node = node->next;
 	}
 }
+
+
+int book_cmp(const book_t * book1, const book_t * book2) {
+	return -1;
+}
+
