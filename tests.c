@@ -181,11 +181,27 @@ int test_sort_empty(void) {
 	return -1;
 }
 
+// TODO test case insensitivity and books with same title
 int test_cmp(void) {
+	book_t book1 = { "A History", "Booble Fitz" };
+	book_t book2 = { "Zebratown" "Booble Fitz" };
+
+	if (0 == book_cmp(&book1, &book1)
+	&& (0 > book_cmp(&book1, &book2))
+	&& (0 < book_cmp(&book1, &book2)))
+	{
+		return 0;
+	}
 	return -1;
 }
 
 int test_copy(void) {
+	book_t dest_book = { "", "" };
+	if (0 == copy_book(&books[1], &dest_book)) {
+		if (0 == book_cmp(&books[1], &dest_book)) {
+			return 0;
+		}
+	}
 	return -1;
 }
 
@@ -194,7 +210,9 @@ struct test_fn {
 	char * name;
 };
 
-/* Struct populated with :r!grep -o "test_[a-zA-Z_]*" tests.c | awk '{print "{ &"$0", \""$0"\" },"}' */
+/* Struct populated with :r!grep -o "test_[a-zA-Z_]*" tests.c | awk '{print "{ &"$0", \""$0"\" },"}'
+ * This only works when the struct is empty. Otherwise you get many duplicates.
+ */
 struct test_fn tests[] = {
 	{ &test_push, "test_push" },
 	{ &test_push_three, "test_push_three" },
@@ -213,7 +231,9 @@ struct test_fn tests[] = {
 	{ &test_find_missing_index, "test_find_missing_index" },
 	{ &test_sort, "test_sort" },
 	{ &test_sort_one, "test_sort_one" },
-	{ &test_sort_empty, "test_sort_empty" }
+	{ &test_sort_empty, "test_sort_empty" },
+	{ &test_cmp, "test_cmp" },
+	{ &test_copy, "test_copy" }
 };
 
 int main(void) {
