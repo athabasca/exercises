@@ -21,9 +21,10 @@ typedef struct node {
 } node_t;
 
 /* Return codes */
-#define BOOK_LIST_EMPTY -1
-#define BOOK_NOT_FOUND -2
-#define NO_MEMORY -3
+#define NOT_IMPLEMENTED -1
+#define BOOK_LIST_EMPTY -2
+#define BOOK_NOT_FOUND -3
+#define NO_MEMORY -4
 
 /* Sorting flags */
 #define BOOK_SORT_TITLE 0x1

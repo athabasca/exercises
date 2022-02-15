@@ -34,8 +34,8 @@ int push(node_t ** head, const char * title, const char * author) {
 }
 
 
-int pop(node_t ** head, book_t * return_data){ return -1; }
-int delete(node_t ** head, const char * title){ return -1; }
+int pop(node_t ** head, book_t * return_data){ return NOT_IMPLEMENTED; }
+int delete(node_t ** head, const char * title){ return NOT_IMPLEMENTED; }
 
 int find_title(node_t * head, const char * title, book_t * return_data) {
 	node_t * node = NULL;
@@ -59,8 +59,8 @@ int find_title(node_t * head, const char * title, book_t * return_data) {
 }
 
 
-int find_index(node_t * head, const unsigned int index, book_t * return_data) { return -1; }
-int sort(node_t * head, unsigned int flags){ return -1; }
+int find_index(node_t * head, const unsigned int index, book_t * return_data) { return NOT_IMPLEMENTED; }
+int sort(node_t * head, unsigned int flags){ return NOT_IMPLEMENTED; }
 
 void print_list(node_t * head) {
 	node_t * node = head;
@@ -76,6 +76,6 @@ void print_list(node_t * head) {
 
 
 int book_cmp(const book_t * book1, const book_t * book2) {
-	return -1;
+	return NOT_IMPLEMENTED;
 }
 

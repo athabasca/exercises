@@ -26,8 +26,7 @@ int test_push_three(void) {
 	const unsigned int MAX_INDEX = 2;
 	node_t * head = NULL;
 	int retval = -1;
-	int ii = 0, jj = 0;
-	book_t found_book;
+	int ii = 0;
 
 	for (ii = 0; ii <= MAX_INDEX; ii++) {
 		retval = push(&head, books[ii].title, books[ii].author);
