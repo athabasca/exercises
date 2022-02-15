@@ -34,7 +34,24 @@ int push(node_t ** head, const char * title, const char * author) {
 }
 
 
-int pop(node_t ** head, book_t * return_data){ return NOT_IMPLEMENTED; }
+int pop(node_t ** head, book_t * return_data){
+	node_t * node = NULL;
+	
+	if (NULL == *head) {
+		return BOOK_LIST_EMPTY;
+	}
+	
+	node = *head;
+	copy_book(node->data, return_data);
+	*head = (*head)->next;
+
+	free(node->data);
+	free(node);
+
+	return 0;
+}
+
+
 int delete(node_t ** head, const char * title){ return NOT_IMPLEMENTED; }
 
 int find_title(node_t * head, const char * title, book_t * return_data) {
