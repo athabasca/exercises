@@ -84,6 +84,14 @@ int book_cmp(const book_t * book1, const book_t * book2) {
 }
 
 int copy_book(const book_t * src, book_t * dest) {
-	return NOT_IMPLEMENTED;
+	size_t title_len = 0, author_len = 0;
+
+	title_len = strlen(src->title) + 1; // Account for null
+	author_len = strlen(src->author) + 1; // Account for null
+
+	memcpy(dest->title, src->title, title_len);
+	memcpy(dest->author, src->author, author_len);
+
+	return 0;
 }
 
