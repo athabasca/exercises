@@ -45,14 +45,49 @@ int test_push_nomem(void) {
 }
 
 int test_pop(void) {
+	node_t * head = NULL;
+	book_t book = { "", "" };
+
+	push(&head, books[1].title, books[1].author);
+
+	if ((0 == pop(&head, &book))
+	&& (0 == book_cmp(&books[1], &book))
+	&& (NULL == head)) {
+		return 0;
+	}
 	return -1;
 }
 
 int test_pop_two_of_three(void) {
+	node_t * head = NULL;
+	book_t book1 = { "", "" };
+	book_t book2 = { "", "" };
+	int ret_val = 0;
+
+	push(&head, books[1].title, books[1].author);
+	push(&head, books[2].title, books[2].author);
+	push(&head, books[3].title, books[3].author);
+
+	ret_val = pop(&head, &book1);
+	if ((0 == ret_val)
+	&& (0 == book_cmp(&books[3], &book1))
+	&& (NULL != head)) {
+		ret_val = pop(&head, &book2);
+		if ((0 == ret_val)
+		&& (0 == book_cmp(&books[2], &book2))
+		&& (NULL != head)) {
+			return 0;
+		}
+	}
 	return -1;
 }
 
 int test_pop_empty(void) {
+	node_t * head = NULL;
+	book_t book = { "", "" };
+	if (pop(&head, &book) == BOOK_LIST_EMPTY) {
+		return 0;
+	}
 	return -1;
 }
 
