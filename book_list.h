@@ -119,7 +119,7 @@ void print_list(node_t * head);
 /* Compare two books
  *
  * The book_cmp() function compares two books alphabetically 
- * and case-insensitively by title then author.
+ * by title then author.
  *
  * The book_cmp() function returns:
  * 	0 if book1 is equal to book2

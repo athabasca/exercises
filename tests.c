@@ -181,7 +181,7 @@ int test_sort_empty(void) {
 	return -1;
 }
 
-// TODO test case insensitivity and books with same title
+// TODO test books with same title
 int test_cmp(void) {
 	book_t book1 = { "A History", "Booble Fitz" };
 	book_t book2 = { "Zebratown" "Booble Fitz" };
