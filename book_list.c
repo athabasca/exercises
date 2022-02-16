@@ -76,7 +76,6 @@ int find_title(node_t * head, const char * title, book_t * return_data) {
 }
 
 
-int find_index(node_t * head, const unsigned int index, book_t * return_data) { return NOT_IMPLEMENTED; }
 int sort(node_t * head, unsigned int flags){ return NOT_IMPLEMENTED; }
 
 void print_list(node_t * head) {
