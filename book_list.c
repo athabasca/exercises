@@ -66,8 +66,7 @@ int find_title(node_t * head, const char * title, book_t * return_data) {
 	node = head;
 	while (NULL != node) {
 		if (strncmp(title, node->data->title, length) == 0) {
-			snprintf(return_data->title, length, "%s", node->data->title);
-			snprintf(return_data->author, strlen(node->data->author) + 1, "%s", node->data->author);
+			copy_book(node->data, return_data);
 			return 0;
 		}
 		node = node->next;
