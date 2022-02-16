@@ -110,6 +110,10 @@ int test_delete_missing_book(void) {
 	return -1;
 }
 
+int test_find_title(void) {
+	return -1;
+}
+
 int test_find_title_empty(void) {
 	node_t * head = NULL;
 	book_t found_book;
@@ -124,18 +128,6 @@ int test_find_title_empty(void) {
 	}
 }
 
-int test_find_index_empty(void) {
-	node_t * head = NULL;
-	book_t found_book;
-	int retval = -1;
-
-	retval = find_index(head, 0, &found_book);
-	if (BOOK_LIST_EMPTY == retval) {
-		return 0;
-	}
-	return -1;
-}
-
 int test_find_missing_title(void) {
 	node_t * head = NULL;
 	book_t found_book;
@@ -146,25 +138,6 @@ int test_find_missing_title(void) {
 		if (BOOK_NOT_FOUND == retval) {
 			return 0;
 		}
-	}
-	return -1;
-}
-
-int test_find_missing_index(void) {
-	const unsigned int MAX_INDEX = 2;
-	node_t * head = NULL;
-	int retval = -1;
-	int ii = 0;
-	book_t found_book;
-
-	for (ii = 0; ii <= MAX_INDEX; ii++) {
-		retval = push(&head, books[ii].title, books[ii].author);
-		if (retval != 0) { return retval; }
-	}
-	
-	retval = find_index(head, MAX_INDEX + 1, &found_book);
-	if (BOOK_NOT_FOUND == retval) {
-		return 0;
 	}
 	return -1;
 }
@@ -225,10 +198,9 @@ struct test_fn tests[] = {
 	{ &test_delete_last, "test_delete_last" },
 	{ &test_delete_empty, "test_delete_empty" },
 	{ &test_delete_missing_book, "test_delete_missing_book" },
+	{ &test_find_title, "test_find_title" },
 	{ &test_find_title_empty, "test_find_title_empty" },
-	{ &test_find_index_empty, "test_find_index_empty" },
 	{ &test_find_missing_title, "test_find_missing_title" },
-	{ &test_find_missing_index, "test_find_missing_index" },
 	{ &test_sort, "test_sort" },
 	{ &test_sort_one, "test_sort_one" },
 	{ &test_sort_empty, "test_sort_empty" },
