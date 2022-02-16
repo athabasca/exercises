@@ -14,8 +14,8 @@ int push(node_t ** head, const char * title, const char * author) {
 		return NO_MEMORY;
 	}
 
-	snprintf(data->title, strlen(title) + 1, "%s", title);
-	snprintf(data->author, strlen(author) + 1, "%s", author);
+	snprintf(data->title, MAX_STRING, "%s", title);
+	snprintf(data->author, MAX_STRING, "%s", author);
 
 	new_node = malloc(sizeof(node_t));
 	if (NULL == new_node) {
