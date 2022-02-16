@@ -111,6 +111,17 @@ int test_delete_missing_book(void) {
 }
 
 int test_find_title(void) {
+	node_t * head = NULL;
+	int ii = 0, ret_val = 0;
+	book_t found_book = { "", "" };
+
+	for (ii = 0; ii < 4; ii++) {
+		push(&head, books[ii].title, books[ii].author);
+	}
+	ret_val = find_title(head, books[2].title, &found_book);
+	if (0 == ret_val && 0 == book_cmp(&books[2], &found_book)) {
+		return 0;
+	}
 	return -1;
 }
 
