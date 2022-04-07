@@ -22,7 +22,18 @@ int removeElement(int* nums, int numsSize, int val){
      * 	nums[i-count] = nums[i];
      * 	if (nums[i] == val) { count++; }
      * }
-     * return numsSize - count;
+     * return numsSize - count;*/
+}
+
+int removeDuplicates(int* nums, int numsSize){
+    int i, count = 1;
+    for (i = 1; i < numsSize; i++) {
+        if (nums[i] != nums[i-1]) {
+            nums[count] = nums[i];
+            count++;
+        }
+    }
+    return count;
 }
 
 int main(void) {
