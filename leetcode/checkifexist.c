@@ -51,6 +51,11 @@ bool checkIfExist(int* arr, int arrSize){
     unsigned int i;
     quicksort(arr, 0, arrSize - 1);
     for (i = 0; i < arrSize; i++) {
+	if (0 == arr[i]) {
+	    if (0 == arr[i+1]) {
+                return true;
+            }
+	}
         if (binary_search(arr, arrSize, arr[i]*2)) {
             return true;
         }
@@ -64,8 +69,8 @@ bool checkIfExist(int* arr, int arrSize){
 }
 
 int main(void) {
-	int array[] = {10,2,5,3};
-	unsigned int length = 4;
+	int array[] = {-2,0,10,-19,4,6,-8};
+	unsigned int length = 7;
 	bool result = checkIfExist(array, length);
 	printf("result: %s\n", result ? "true" : "false");
 }
